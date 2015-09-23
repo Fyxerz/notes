@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Notes app.</title>
+	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="notesApp">
+	<div class="wrapper" ng-controller="notesController">
+		<aside class="sidebar">
+			<nav>
+				<button>Category 1</button>
+				<button>Category 2</button>
+				<button>Category 3</button>
+				<button>Category 4</button>
+				<button>Category 5</button>
+			</nav>
+		</aside>
+		<article class="note"></article>
+	</div>
+
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="scripts/main.js"></script>
+</body>
+</html>
