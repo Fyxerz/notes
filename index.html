@@ -9,13 +9,23 @@
 <body ng-app="notesApp">
 	<div class="wrapper" ng-controller="notesController">
 		<aside class="sidebar">
-			<nav ng-repeat="cat in categories">
-				<button>{{cat.description}}</button>
+			<nav >
+				<button ng-repeat="cat in categories" ng-click="selectCat($index); switchClass()">{{cat.description}}</button>
+			</nav>
+			<nav class="cat_nav">
+			<button ng-repeat="note in selectedCat" ng-click="presentNote($index)">{{note.title}}</button>
 			</nav>
 		</aside>
-		<article class="note"></article>
+		<article class="note">
+			<h1>
+				<input type="text" >
+			</h1>
+			<p>
+				{{selectedNote.content}}
+			</p>
+		</article>
 	</div>
-
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="scripts/main.js"></script>
 </body>

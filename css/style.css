@@ -3,11 +3,11 @@
   height: 100vh;
   float: left; }
 
-.sidebar {
+.sidebar, .cat_nav {
   width: 30%;
   height: 100vh;
   float: left; }
-  .sidebar button {
+  .sidebar button, .cat_nav button {
     width: 100%;
     padding: 50px 0 50px 0;
     text-align: center;
@@ -19,5 +19,16 @@
   width: 70%;
   height: 100vh;
   float: left; }
+
+.cat_nav {
+  position: fixed;
+  top: 0;
+  left: -30%;
+  z-index: 1000;
+  background: white; }
+
+.overlay_in {
+  left: 0;
+  transition: .5s; }
 
 /*# sourceMappingURL=style.css.map */

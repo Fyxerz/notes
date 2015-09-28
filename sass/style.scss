@@ -26,3 +26,18 @@
 	float: left;
 }
 
+.cat_nav{
+	@extend .sidebar;
+	position: fixed;
+	top: 0;
+	left: -30%;
+	z-index: 1000;
+	background: white;
+
+}
+
+.overlay_in{
+	left: 0;
+	transition: .5s;
+}
+
