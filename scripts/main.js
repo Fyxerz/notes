@@ -28,25 +28,43 @@ app.controller('notesController', function($scope, $http) {
 
     $scope.hideCat = function() {
         $('.cat_nav').removeClass('overlay_in');
+        $scope.selectedCat = null;
     };
 
     $scope.presentNote = function(index) {
         $scope.selectedNote = $scope.selectedCat.notes[index];
     };
 
+    $scope.callNewCatPopup = function() {
+        $('.new_cat_popup').addClass('display_in');
+    };
+
+    $scope.createNewCat = function() {
+        $scope.categories.push(
+            {
+                description: $scope.newCat,
+                notes: []
+            }
+        );
+
+        $('.new_cat_popup').removeClass('display_in');
+    }
 
     $scope.createNewNote = function() {
 
-        $scope.selectedCat.notes.push(
-            {
-                title: '',
-                content: ''
-            });
-        $scope.selectedNote = $scope.selectedCat.notes[$scope.selectedCat.notes.length - 1];
-        console.log('SelectedCat: ');
-        console.log($scope.selectedCat.notes[$scope.selectedCat.notes.length - 1]);
-        console.log('UniCat: ');
-        console.log($scope.categories[0].notes);
+        if ($scope.selectedCat) {    
+            $scope.selectedCat.notes.push(
+                {
+                    title: '',
+                    content: ''
+                });
+            $scope.selectedNote = $scope.selectedCat.notes[$scope.selectedCat.notes.length - 1];
+            console.log('SelectedCat: ');
+            console.log($scope.selectedCat.notes[$scope.selectedCat.notes.length - 1]);
+            console.log('UniCat: ');
+            console.log($scope.categories[0].notes);
+        };
+
     };
 });
 

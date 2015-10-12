@@ -12,12 +12,15 @@ textarea{
 }
 
 input{
-	
+	width: 100%;
+	border: 0;
+	border-bottom: 2px solid #272727;
 }
 
 .sidebar{
 	width: 30%;
 	height: 100vh;
+	overflow: auto;
 	float: left;
 	position: relative;
 
@@ -65,14 +68,33 @@ input{
 
 }
 
-.overlay_in{
-	left: 0;
+.new_cat_popup{
+	width: 30%;
+	border: 1px solid #272727;
+	position: fixed;
+	bottom: 0;
+	z-index: 1000;
+	display:none;
 }
 
-
-
-.add_button{
+.add_note_button{
 	position: fixed;
 	right: 20px;
 	font-size: 52px;
 }
+
+.add_cat_button{
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	font-size: 52px;
+}
+
+.overlay_in{
+	left: 0;
+}
+
+.display_in{
+	display: block;
+}
+

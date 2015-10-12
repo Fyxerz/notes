@@ -11,6 +11,7 @@
 		<aside class="sidebar">
 			<nav>
 				<button ng-repeat="cat in categories" ng-click="selectCat($index); presentCat()">{{cat.description}}</button>
+				<button ng-click="callNewCatPopup()">Add New Category</button>
 			</nav>
 			<nav class="cat_nav">
 			<h2>{{selectedCat.description}}</h2>
@@ -20,15 +21,16 @@
 		</aside>
 		<article class="note">
 			<h1>
-				<input type="text" ng-model="selectedNote.title">
+				<input type="text" placeholder="Title of the note" ng-model="selectedNote.title">
 			</h1>
 			<p>
-				<textarea value="{{selectedNote.content}}" ng-model="selectedNote.content"></textarea>
+				<textarea placeholder="Content" ng-model="selectedNote.content"></textarea>
 			</p>			
 		</article>
-		<div class="add_button" ng-click="createNewNote()">
+		<div class="add_note_button" ng-click="createNewNote()">
 			+
 		</div>
+		<form ng-submit="createNewCat()" class="new_cat_popup"><input type="text" placeholder="New Category name" ng-model="newCat"><input type="submit" value="Create"></form>
 	</div>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
