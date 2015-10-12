@@ -4,10 +4,25 @@
 	float: left;
 }
 
+textarea{
+	width: 100%;
+	min-height: 70vh;
+	border: 0;
+	line-height: 1.5;
+}
+
 .sidebar{
 	width: 30%;
 	height: 100vh;
 	float: left;
+	position: relative;
+
+	h2{
+		margin: 2vh 0 2vh 0;
+		font-size: 52px;
+		text-align: center;
+	}
+
 
 	button{
 		width: 100%;
@@ -18,26 +33,42 @@
 		background: none;
 	}
 
+	.back_button{
+		position: fixed;
+		right: 5px;
+		bottom: 5px;
+	}
 }
 
 .note{
 	width: 70%;
 	height: 100vh;
+	padding: 0 10%;
 	float: left;
+	box-sizing: border-box;
 }
 
 .cat_nav{
 	@extend .sidebar;
+	height: 100vh;
 	position: fixed;
+	overflow: scroll;
 	top: 0;
 	left: -30%;
 	z-index: 1000;
 	background: white;
+	transition: .5s;
 
 }
 
 .overlay_in{
 	left: 0;
-	transition: .5s;
 }
 
+
+
+.add_button{
+	position: fixed;
+	right: 20px;
+	font-size: 52px;
+}

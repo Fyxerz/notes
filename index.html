@@ -9,21 +9,28 @@
 <body ng-app="notesApp">
 	<div class="wrapper" ng-controller="notesController">
 		<aside class="sidebar">
-			<nav >
-				<button ng-repeat="cat in categories" ng-click="selectCat($index); switchClass()">{{cat.description}}</button>
+			<nav>
+				<button ng-repeat="cat in categories" ng-click="selectCat($index); presentCat()">{{cat.description}}</button>
 			</nav>
 			<nav class="cat_nav">
-			<button ng-repeat="note in selectedCat" ng-click="presentNote($index)">{{note.title}}</button>
+			<h2>{{selectedCat.description}}</h2>
+			<button ng-repeat="note in selectedCat.notes" ng-click="presentNote($index)">{{note.title}}</button>
+			<div class="back_button" ng-click="hideCat()">BACK</div>
 			</nav>
 		</aside>
 		<article class="note">
 			<h1>
-				<input type="text" >
+				{{selectedNote.description}} Poop
+
+				<!-- <input type="text" ng-model="selectedNote.description"> -->
 			</h1>
 			<p>
-				{{selectedNote.content}}
-			</p>
+				<textarea value="{{selectedNote.content}}" ng-model="selectedNote.content"></textarea>
+			</p>			
 		</article>
+		<div class="add_button" ng-click="createNewNote()">
+			+
+		</div>
 	</div>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
