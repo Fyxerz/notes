@@ -58,14 +58,20 @@ app.controller('notesController', function($scope, $http) {
                     title: '',
                     content: ''
                 });
-            $scope.selectedNote = $scope.selectedCat.notes[$scope.selectedCat.notes.length - 1];
-            console.log('SelectedCat: ');
-            console.log($scope.selectedCat.notes[$scope.selectedCat.notes.length - 1]);
-            console.log('UniCat: ');
-            console.log($scope.categories[0].notes);
+            $scope.selectedNote = $scope.selectedCat.notes[$scope.selectedCat.notes.length - 1];    
+            $('.noteTitle').focus();
         };
 
     };
+
+    $scope.deleteNote = function(index) {
+      $scope.selectedCat.notes.splice(index, 1);
+      console.log('msg')
+
+    };
+
+
+
 });
 
 

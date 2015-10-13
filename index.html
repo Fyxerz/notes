@@ -9,19 +9,21 @@
 <body ng-app="notesApp">
 	<div class="wrapper" ng-controller="notesController">
 		<aside class="sidebar">
-			<nav>
+			<nav class="main_nav">
 				<button ng-repeat="cat in categories" ng-click="selectCat($index); presentCat()">{{cat.description}}</button>
 				<button ng-click="callNewCatPopup()">Add New Category</button>
 			</nav>
 			<nav class="cat_nav">
 			<h2>{{selectedCat.description}}</h2>
-			<button ng-repeat="note in selectedCat.notes" ng-click="presentNote($index)">{{note.title}}</button>
+			<div ng-repeat="note in selectedCat.notes" ng-click="presentNote($index)">{{note.title}}
+				<h6 ng-click="deleteNote($index)">Delete</h6>
+			</div>
 			<div class="back_button" ng-click="hideCat()">BACK</div>
 			</nav>
 		</aside>
 		<article class="note">
 			<h1>
-				<input type="text" placeholder="Title of the note" ng-model="selectedNote.title">
+				<input class="noteTitle" type="text" placeholder="Title of the note" ng-model="selectedNote.title">
 			</h1>
 			<p>
 				<textarea placeholder="Content" ng-model="selectedNote.content"></textarea>
