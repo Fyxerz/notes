@@ -13,19 +13,49 @@
   height: 100vh;
   overflow: auto;
   float: left;
-  transition: .5s; }
-  .sidebar div, .secondaryNav div {
-    border-bottom: 1px solid black; }
-    .sidebar div:hover h6, .secondaryNav div:hover h6 {
+  color: white;
+  background: #272727; }
+  .sidebar .catDiv, .secondaryNav .catDiv, .sidebar .noteDiv, .secondaryNav .noteDiv {
+    padding: 20px 10% 0;
+    border-bottom: 1px solid white; }
+    .sidebar .catDiv:hover h6, .secondaryNav .catDiv:hover h6, .sidebar .noteDiv:hover h6, .secondaryNav .noteDiv:hover h6 {
       opacity: 1; }
-  .sidebar h2, .secondaryNav h2 {
+  .sidebar h1, .secondaryNav h1 {
+    text-transform: uppercase;
+    font-size: 42px; }
+  .sidebar h2, .secondaryNav h2, .sidebar h3, .secondaryNav h3 {
     text-align: center; }
   .sidebar h3, .secondaryNav h3 {
-    text-align: center; }
+    font-size: 20px;
+    font-weight: 100; }
   .sidebar h6, .secondaryNav h6 {
     margin: 0;
     text-align: right;
     opacity: 0; }
+  .sidebar span, .secondaryNav span {
+    left: 1%; }
+  .sidebar input[type="text"], .secondaryNav input[type="text"] {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 22px;
+    background: inherit; }
+  .sidebar input[type="submit"], .secondaryNav input[type="submit"] {
+    margin: 20px 0 0 0;
+    padding: 5px 10px;
+    border: 0;
+    float: right;
+    font-size: 22px;
+    color: #272727;
+    background: white; }
+  .sidebar .catDiv, .secondaryNav .catDiv {
+    text-transform: uppercase; }
+  .sidebar .newCatPopup, .secondaryNav .newCatPopup {
+    margin: 0;
+    padding: 30px 10%;
+    border-bottom: 1px solid white;
+    background: dodgerblue; }
 
 .backButton {
   position: fixed;
@@ -34,9 +64,21 @@
 .note {
   width: 70%;
   height: 100vh;
-  padding: 0 10%;
+  padding: 0 5%;
   float: left;
+  color: #272727;
   box-sizing: border-box; }
+  .note input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #272727;
+    font-size: 42px; }
+  .note textarea {
+    width: 100%;
+    height: 80vh;
+    border: 0;
+    font-size: 20px;
+    font-weight: 100; }
 
 .secondaryNav {
   height: 100vh;
@@ -66,6 +108,12 @@
   left: 20px;
   bottom: 20px;
   font-size: 52px; }
+
+.opacityDown {
+  opacity: 0; }
+
+.opacityUp {
+  opacity: 1; }
 
 .overlayIn {
   left: 0; }

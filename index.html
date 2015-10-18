@@ -11,21 +11,26 @@
 		<!-- SIDEBAR STARTS -->
 	<aside class="sidebar">
 		<nav>
-			<div ng-repeat="cat in selectedCategory.categories" ng-click="selectCat($index);">
+			<div class="catDiv">
+				<h1>
+					{{selectedCategory.catName}}
+				</h1>
+			</div>
+			<div class="catDiv" ng-repeat="cat in selectedCategory.categories" ng-click="selectCat($index);">
 				<h2>{{cat.catName}}</h2>
 				<h6 ng-click="deleteCat($index);">Delete</h6>
 			</div>
-			<div ng-repeat="note in selectedCategory.notes" ng-click="presentNote($index);">
+			<div class="noteDiv" ng-repeat="note in selectedCategory.notes" ng-click="presentNote($index);">
 				<h3>{{note.noteTitle}}</h3>
 				<h6 ng-click="deleteNote();">Delete</h6>
 			</div>	
 			<div>
 				<form class="newCatPopup" ng-submit="createNewCat();">
 					<input class="newCatName" type="text" placeholder="Name of new cat" ng-model="newCat">
-					<input type="submit" value="Create new cat">
+					<input type="submit" value="Add folder">
 				</form>
 			</div>
-			<div class="backButton" ng-click="backCat();">Back</div>
+			<span class="backButton" ng-click="backCat();">BACK</span>
 		</nav>
 	</aside>
 
@@ -34,7 +39,7 @@
 
 	<!-- ARTICLE STARTS -->
 
-	<article>
+	<article class="note" ng-show="selectedNote">
 		<h1>
 			<input class="noteTitle" type="text" ng-model="selectedNote.noteTitle">
 		</h1>

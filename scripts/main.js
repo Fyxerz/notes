@@ -29,16 +29,13 @@ app.controller('notesController', function($scope, $http) {
 
     setInterval(function() {
         localStorage.setItem('main', JSON.stringify($scope.categoryTree[0])); 
-        console.log(JSON.parse(localStorage.main));
+        // console.log(JSON.parse(localStorage.main));
     }, 1000);
 
 
     $scope.selectCat = function(index) {
-        $('.sidebar').addClass('overlay');
         $scope.selectedCategory = $scope.selectedCategory.categories[index];
-        console.log($scope.selectedCategory);
         $scope.categoryTree.push($scope.selectedCategory);
-        console.log($scope.mainCategory);
     };
 
     $scope.backCat = function() {
@@ -50,7 +47,6 @@ app.controller('notesController', function($scope, $http) {
 
     $scope.presentNote = function(index) {
         $scope.selectedNote = $scope.selectedCategory.notes[index];
-        console.log($scope.selectedNote);
     };
 
     $scope.callNewCatPopup = function() {
