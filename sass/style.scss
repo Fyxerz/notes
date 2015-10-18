@@ -4,17 +4,10 @@
 	float: left;
 }
 
-textarea{
-	width: 100%;
-	min-height: 70vh;
-	border: 0;
-	line-height: 1.5;
-}
-
-input{
-	width: 100%;
-	border: 0;
-	border-bottom: 2px solid #272727;
+.navPlaceholder{
+	width: 30%;
+	height: 100vh;
+	float: left;
 }
 
 .sidebar{
@@ -22,40 +15,38 @@ input{
 	height: 100vh;
 	overflow: auto;
 	float: left;
-	position: relative;
+	transition: .5s;
+
+	div{
+		border-bottom: 1px solid black;
+	
+		&:hover{
+			
+			h6{
+				opacity: 1;
+			}
+		}
+	}
 
 	h2{
-		margin: 2vh 0 2vh 0;
-		font-size: 52px;
 		text-align: center;
 	}
 
-
-	button{
-		width: 100%;
-		padding: 20px 0 0px 0;
+	h3{
 		text-align: center;
-		border: 0;
-		border-bottom: 1px solid #272727;
-		background: none;
-
-		h6{
-			margin: 0;
-			text-align: right;
-		}
 	}
 
-	.main_nav{
-		button{
-			margin-bottom: 50px;
-		}
+	h6{
+		margin: 0;
+		text-align: right;
+		opacity: 0;
 	}
 
-	.back_button{
-		position: fixed;
-		right: 5px;
-		bottom: 5px;
-	}
+}
+
+.backButton{
+	position: fixed;
+	bottom: 5px;
 }
 
 .note{
@@ -67,7 +58,7 @@ input{
 }
 
 
-.cat_nav{
+.secondaryNav{
 	@extend .sidebar;
 	height: 100vh;
 	position: fixed;
@@ -76,8 +67,6 @@ input{
 	left: -30%;
 	z-index: 1000;
 	background: white;
-	transition: .5s;
-
 }
 
 .new_cat_popup{
@@ -89,8 +78,9 @@ input{
 	display:none;
 }
 
-.add_note_button{
+.addNoteButton{
 	position: fixed;
+	top: 0;
 	right: 20px;
 	font-size: 52px;
 }
@@ -102,11 +92,11 @@ input{
 	font-size: 52px;
 }
 
-.overlay_in{
+.overlayIn{
 	left: 0;
 }
 
-.display_in{
+.displayIn{
 	display: block;
 }
 

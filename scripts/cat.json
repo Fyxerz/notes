@@ -1,26 +1,8 @@
-[
-    {
-        "description": "Work",
 
-        "notes": [
-            {
-                "title": "This is a title for a note on work",
-                "content": "This is some content"
-            },
-            {
-                "title": "Chris is stoops",
-                "content": "Im the scatman!"
-            }
-        ]
-    },
-    {
-        "description": "Uni",
+{
+    "catName": "Main",
 
-        "notes": [
-            {
-                "title": "This is a title for a note on uni",
-                "content": "This is some more content about uni"
-            }
-        ]
-    }
-]
+    "categories": [],
+
+    "notes": []
+}

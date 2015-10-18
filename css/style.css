@@ -3,43 +3,33 @@
   height: 100vh;
   float: left; }
 
-textarea {
-  width: 100%;
-  min-height: 70vh;
-  border: 0;
-  line-height: 1.5; }
+.navPlaceholder {
+  width: 30%;
+  height: 100vh;
+  float: left; }
 
-input {
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid #272727; }
-
-.sidebar, .cat_nav {
+.sidebar, .secondaryNav {
   width: 30%;
   height: 100vh;
   overflow: auto;
   float: left;
-  position: relative; }
-  .sidebar h2, .cat_nav h2 {
-    margin: 2vh 0 2vh 0;
-    font-size: 52px;
+  transition: .5s; }
+  .sidebar div, .secondaryNav div {
+    border-bottom: 1px solid black; }
+    .sidebar div:hover h6, .secondaryNav div:hover h6 {
+      opacity: 1; }
+  .sidebar h2, .secondaryNav h2 {
     text-align: center; }
-  .sidebar button, .cat_nav button {
-    width: 100%;
-    padding: 20px 0 0px 0;
-    text-align: center;
-    border: 0;
-    border-bottom: 1px solid #272727;
-    background: none; }
-    .sidebar button h6, .cat_nav button h6 {
-      margin: 0;
-      text-align: right; }
-  .sidebar .main_nav button, .cat_nav .main_nav button {
-    margin-bottom: 50px; }
-  .sidebar .back_button, .cat_nav .back_button {
-    position: fixed;
-    right: 5px;
-    bottom: 5px; }
+  .sidebar h3, .secondaryNav h3 {
+    text-align: center; }
+  .sidebar h6, .secondaryNav h6 {
+    margin: 0;
+    text-align: right;
+    opacity: 0; }
+
+.backButton {
+  position: fixed;
+  bottom: 5px; }
 
 .note {
   width: 70%;
@@ -48,15 +38,14 @@ input {
   float: left;
   box-sizing: border-box; }
 
-.cat_nav {
+.secondaryNav {
   height: 100vh;
   position: fixed;
   overflow: scroll;
   top: 0;
   left: -30%;
   z-index: 1000;
-  background: white;
-  transition: .5s; }
+  background: white; }
 
 .new_cat_popup {
   width: 30%;
@@ -66,8 +55,9 @@ input {
   z-index: 1000;
   display: none; }
 
-.add_note_button {
+.addNoteButton {
   position: fixed;
+  top: 0;
   right: 20px;
   font-size: 52px; }
 
@@ -77,10 +67,10 @@ input {
   bottom: 20px;
   font-size: 52px; }
 
-.overlay_in {
+.overlayIn {
   left: 0; }
 
-.display_in {
+.displayIn {
   display: block; }
 
 /*# sourceMappingURL=style.css.map */

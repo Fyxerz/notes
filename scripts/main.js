@@ -4,68 +4,75 @@ var app = angular.module('notesApp', []);
 
 app.controller('notesController', function($scope, $http) {
 
-    $scope.selectedNote = {};
-    $scope.categories = {};
+    $scope.selectedCategory;
+    $scope.categoryTree = [];
 
     $http({
       method: 'GET',
       url: '../scripts/cat.json'
     }).success(function(response) {
-        $scope.categories = response;
-        $scope.selectedCat = $scope.categories[0];
+        $scope.selectedCategory = response;
+        $scope.categoryTree.push(response);
+        console.log($scope.categoryTree);
       }, function errorCallback(response) {
         console.log('msg');
       });
 
 
     $scope.selectCat = function(index) {
-        $scope.selectedCat = $scope.categories[index];
+        $('.sidebar').addClass('overlay');
+        $scope.selectedCategory = $scope.selectedCategory.categories[index];
+        console.log($scope.selectedCategory);
+        $scope.categoryTree.push($scope.selectedCategory);
+        console.log($scope.categoryTree);
     };
 
-    $scope.presentCat = function() {
-        $('.cat_nav').addClass('overlay_in');
-    };
-
-    $scope.hideCat = function() {
-        $('.cat_nav').removeClass('overlay_in');
-        $scope.selectedCat = null;
+    $scope.backCat = function() {
+        if ($scope.categoryTree.length > 1) {
+            $scope.categoryTree.pop();
+            $scope.selectedCategory = $scope.categoryTree[$scope.categoryTree.length - 1];
+        }
     };
 
     $scope.presentNote = function(index) {
-        $scope.selectedNote = $scope.selectedCat.notes[index];
+        $scope.selectedNote = $scope.selectedCategory.notes[index];
+        console.log($scope.selectedNote);
     };
 
     $scope.callNewCatPopup = function() {
-        $('.new_cat_popup').addClass('display_in');
+        $('.newCatPopup').addClass('display_in');
     };
 
     $scope.createNewCat = function() {
-        $scope.categories.push(
+        $scope.selectedCategory.categories.push(
             {
-                description: $scope.newCat,
+                catName: $scope.newCat,
+                categories: [],
                 notes: []
             }
         );
+        $('.newCatName').val("");
+        $scope.newCat = null;
+    }
 
-        $('.new_cat_popup').removeClass('display_in');
+
+    $scope.deleteCat = function(index) {
+        $scope.selectedCategory.categories.splice(index, 1);
     }
 
     $scope.createNewNote = function() {
-
-        if ($scope.selectedCat) {    
-            $scope.selectedCat.notes.push(
+            $scope.selectedCategory.notes.push(
                 {
                     title: '',
                     content: ''
                 });
-            $scope.selectedNote = $scope.selectedCat.notes[$scope.selectedCat.notes.length - 1];    
+            $scope.selectedNote = $scope.selectedCategory.notes[$scope.selectedCategory.notes.length - 1];    
             $('.noteTitle').focus();
-        };
 
     };
 
     $scope.deleteNote = function(index) {
-      $scope.selectedCat.notes.splice(index, 1);
+      $scope.selectedCategory.notes.splice(index, 1);
       console.log('msg')
 
     };
