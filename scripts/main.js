@@ -4,34 +4,33 @@ var app = angular.module('notesApp', []);
 
 app.controller('notesController', function($scope, $http) {
 
-    $scope.selectedCategory;
-    $scope.categoryTree = [];
+    $scope.mainCategory = {
+        "catName": "Main",
 
-    $http({
-      method: 'GET',
-      url: '../scripts/cat.json'
-    }).success(function(response) {
-        $scope.selectedCategory = response;
-        $scope.categoryTree.push(response);
-        $scope.startStorage();
-      }, function errorCallback(response) {
-        console.log('Couldn\'t get JSON');
-      });
+        "categories": [],
 
-    $scope.startStorage = function() {
+        "notes": []
+    };
+
+    $scope.selectedCategory = $scope.mainCategory;
+    $scope.categoryTree = [$scope.mainCategory];
+
+    function startStorage() {
         if (localStorage.main == null) {
-            localStorage.main = JSON.stringify($scope.selectedCategory);
-            console.log(JSON.parse(localStorage.main));
+            console.log('msg')
+            localStorage.main = $scope.categoryTree[0]
         }
         else {
             console.log('Storage already initiated.');
         }
     };
 
+    startStorage();
+
     setInterval(function() {
-        localStorage.main = JSON.stringify($scope.selectedCategory);
-        console.log(localStorage.main);
-    }, 5000);
+        localStorage.setItem('main', JSON.stringify($scope.categoryTree[0])); 
+        console.log(JSON.parse(localStorage.main));
+    }, 1000);
 
 
     $scope.selectCat = function(index) {
@@ -39,7 +38,7 @@ app.controller('notesController', function($scope, $http) {
         $scope.selectedCategory = $scope.selectedCategory.categories[index];
         console.log($scope.selectedCategory);
         $scope.categoryTree.push($scope.selectedCategory);
-        console.log($scope.categoryTree);
+        console.log($scope.mainCategory);
     };
 
     $scope.backCat = function() {
@@ -68,6 +67,7 @@ app.controller('notesController', function($scope, $http) {
         );
         $('.newCatName').val('');
         $scope.newCat = null;
+        console.log($scope.categoryTree[0]);
     };
 
 
