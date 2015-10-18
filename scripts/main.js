@@ -13,10 +13,25 @@ app.controller('notesController', function($scope, $http) {
     }).success(function(response) {
         $scope.selectedCategory = response;
         $scope.categoryTree.push(response);
-        console.log($scope.categoryTree);
+        $scope.startStorage();
       }, function errorCallback(response) {
-        console.log('msg');
+        console.log('Couldn\'t get JSON');
       });
+
+    $scope.startStorage = function() {
+        if (localStorage.main == null) {
+            localStorage.main = JSON.stringify($scope.selectedCategory);
+            console.log(JSON.parse(localStorage.main));
+        }
+        else {
+            console.log('Storage already initiated.');
+        }
+    };
+
+    setInterval(function() {
+        localStorage.main = JSON.stringify($scope.selectedCategory);
+        console.log(localStorage.main);
+    }, 5000);
 
 
     $scope.selectCat = function(index) {
@@ -51,14 +66,14 @@ app.controller('notesController', function($scope, $http) {
                 notes: []
             }
         );
-        $('.newCatName').val("");
+        $('.newCatName').val('');
         $scope.newCat = null;
-    }
+    };
 
 
     $scope.deleteCat = function(index) {
         $scope.selectedCategory.categories.splice(index, 1);
-    }
+    };
 
     $scope.createNewNote = function() {
             $scope.selectedCategory.notes.push(
